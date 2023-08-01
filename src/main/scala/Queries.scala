@@ -210,5 +210,10 @@ val df19_1 = flightsV.select( 'actual_departure)
     .filter('departure_date <= "2016-09-30")
     .select(count('departure_date) / 30)
 
-//  21. Вывести топ 5 городов у которых среднее время перелета до пункта назначения больше 3  часов
+//  21. Вывести топ 5 городов у которых среднее время перелета до пункта назначения больше 3 часов
+
+
+  val df = flightsV
+    .filter('actual_duration.isNotNull).
+    select(toDurationUDF('actual_duration).alias("duration"))
 }

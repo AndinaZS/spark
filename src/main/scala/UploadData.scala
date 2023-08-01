@@ -1,15 +1,9 @@
-import org.apache.spark.sql.SparkSession
+import Service._
 import org.apache.spark.sql.functions.{col, to_date}
 
 import java.util.Properties
 
 object UploadData extends App {
-
-    val spark = SparkSession
-      .builder()
-      .master("yarn")
-      .enableHiveSupport()
-      .getOrCreate()
 
     val cxnProp = new Properties()
     cxnProp.put("driver", "org.postgresql.Driver")
